@@ -13,7 +13,7 @@ pipeline {
                 bat 'mvn clean';
             }
         }
-        stage ('MVN TEST') {s
+        stage ('MVN TEST') {
             steps {
                 echo "Maven Test JUnit";
                 bat 'mvn test';
