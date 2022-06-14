@@ -5,7 +5,7 @@ pipeline {
         stage ('GIT') {
             steps {
                 echo "Getting Project from Git";
-                git "https://github.com/achrafxor/devopsesprits"
+                git "https://github.com/achrafxor/devopsesprit"
             }
         }
         stage ('MVN CLEAN') {
