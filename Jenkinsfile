@@ -19,5 +19,12 @@ pipeline {
                 sh '/usr/local/apache-maven-3.5.0/bin/mvn test' ;
             }
         }
+        stage ('MVN PACKAGE AND DEPLOY TO nexus') {
+            steps {
+                echo "MVN PACKAGE AND DEPLOY TO nexus";
+                sh '' ;
+            }
+        }
+
     }
 }
