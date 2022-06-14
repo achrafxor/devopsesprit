@@ -14,7 +14,7 @@ pipeline {
                 sh '/usr/local/apache-maven-3.5.0/bin/mvn clean';
             }
         }
-        stage ('MVN TEST') {
+        stage ('MVN TEST2') {
             steps {
                 echo "Maven Test JUnit";
                 sh '/usr/local/apache-maven-3.5.0/bin/mvn test';
