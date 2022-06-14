@@ -7,7 +7,7 @@ pipeline {
                 echo "Getting Project from Git";
                 sh 'cd /var/lib/jenkins/workspace/springProjectPipeline@2'
                 sh 'git pull'
-                git "https://github.com/achrafxor/devopsespritse"
+                git "https://github.com/achrafxor/devopsespritsex"
             }
         }
         stage ('MVN CLEAN') {
