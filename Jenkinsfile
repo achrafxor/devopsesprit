@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools{
-        maven 'M3'
-    }
+
     stages {
         stage ('GIT') {
             steps {
@@ -13,13 +11,13 @@ pipeline {
         stage ('MVN CLEAN') {
             steps {
                 echo "Maven Clean";
-                sh 'mvn clean';
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean';
             }
         }
         stage ('MVN TEST') {
             steps {
                 echo "Maven Test JUnit";
-                sh 'mvn test';
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn test';
             }
         }
     }
