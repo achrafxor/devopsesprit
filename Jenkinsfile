@@ -10,13 +10,13 @@ pipeline {
         stage ('MVN CLEAN') {
             steps {
                 echo "Maven Clean";
-                sh 'mvn clean';
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn';
             }
         }
         stage ('MVN TEST') {
             steps {
                 echo "Maven Test JUnit";
-                sh 'mvn test';
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn';
             }
         }
     }
