@@ -54,7 +54,7 @@ pipeline {
             steps {
                 echo "pushing to docker hub";
                 script {
-                     docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) {
+                     docker.withRegistry( 'registry-1.docker.io/v1 ', DOCKERHUB_CREDENTIALS ) {
                        dockerImage.push()
                      }
                 }
