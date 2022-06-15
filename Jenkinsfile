@@ -42,8 +42,12 @@ pipeline {
         }
         stage ('docker push to docker hub') {
             steps {
-                echo "MVN PACKAGE AND DEPLOY TO nexus";
-                sh '' ;
+                echo "pushing to docker hub";
+                script {
+                  docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+                  }
+                }
             }
         }
         stage ('cleaning up') {
