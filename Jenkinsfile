@@ -55,6 +55,7 @@ pipeline {
                   sh "docker push 13465506/esprit:$BUILD_NUMBER"
              }
         }
+        sasasa
         stage ('cleaning up') {
             steps {
                 echo "MVN PACKAGE AND DEPLOY TO nexus";
