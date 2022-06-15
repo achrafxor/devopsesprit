@@ -41,15 +41,7 @@ pipeline {
                 }
             }
         }
-        stage ('docker login') {
-            steps {
-                echo "pushing to docker hub";
-                script {
-                  sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login registry-1.docker.io/v1 -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
-                }
-            }
-        }
         stage ('docker PUSH') {
             steps {
                 echo "pushing to docker hub";
