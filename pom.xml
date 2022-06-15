@@ -100,5 +100,9 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<repositories>
+
+
+	</repositories>
 
 </project>
