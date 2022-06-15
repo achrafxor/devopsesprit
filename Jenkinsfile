@@ -27,7 +27,7 @@ pipeline {
         stage ('MVN PACKAGE AND DEPLOY TO nexus') {
             steps {
                 echo "MVN PACKAGE AND DEPLOY TO nexus";
-                sh '' ;
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn deploy' ;
             }
         }
         stage ('Docker image build') {
