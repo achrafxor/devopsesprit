@@ -50,7 +50,7 @@ pipeline {
                 }
             }
         }
-        stage ('docker login') {
+        stage ('docker PUSH') {
             steps {
                 echo "pushing to docker hub";
                 script {
