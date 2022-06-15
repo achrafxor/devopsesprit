@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        stage ('build and deploy') {
+        stage ('deploy to nexus') {
             steps {
                 echo "MVN PACKAGE AND DEPLOY TO nexus";
                 sh '/usr/local/apache-maven-3.5.0/bin/mvn clean deploy -DskipTests=true -e -U --batch-mode --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true' ;
