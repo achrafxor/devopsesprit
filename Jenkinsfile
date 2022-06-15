@@ -15,7 +15,7 @@ pipeline {
         stage ('build no push') {
             steps {
                 echo "MVN PACKAGE AND DEPLOY TO nexus";
-                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean package  -DskitTests=true -e -U --batch-mode --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true' ;
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean package  -DskipTests=true -e -U --batch-mode --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true' ;
             }
         }
         stage ('MVN TEST') {
@@ -28,7 +28,7 @@ pipeline {
         stage ('build and deploy') {
             steps {
                 echo "MVN PACKAGE AND DEPLOY TO nexus";
-                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean deploy -DskitTests=true -e -U --batch-mode --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true' ;
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean deploy -DskipTests=true -e -U --batch-mode --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true' ;
             }
         }
         stage ('Docker image build') {
