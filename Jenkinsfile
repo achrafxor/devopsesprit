@@ -2,7 +2,7 @@ pipeline {
     environment {
       registry = "13465506/esprit"
       registryCredential = 'dockerhub'
-      dockerImage = ''
+      ////dockerImage = ''
       DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
     agent any
