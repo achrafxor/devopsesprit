@@ -1,4 +1,9 @@
 pipeline {
+    environment {
+      registry = "13465506/esprit"
+      registryCredential = '13465506'
+      dockerImage = ''
+    }
     agent any
     stages {
         stage ('GIT') {
@@ -20,6 +25,26 @@ pipeline {
             }
         }
         stage ('MVN PACKAGE AND DEPLOY TO nexus') {
+            steps {
+                echo "MVN PACKAGE AND DEPLOY TO nexus";
+                sh '' ;
+            }
+        }
+        stage ('Docker image build') {
+            steps {
+                echo "building docker image";
+                script {
+                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage ('docker push to docker hub') {
+            steps {
+                echo "MVN PACKAGE AND DEPLOY TO nexus";
+                sh '' ;
+            }
+        }
+        stage ('cleaning up') {
             steps {
                 echo "MVN PACKAGE AND DEPLOY TO nexus";
                 sh '' ;
