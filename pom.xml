@@ -101,7 +101,11 @@
 		</dependencies>
 	</dependencyManagement>
 	<repositories>
-
+		<repository>
+			<id>esprit-release</id>
+			<name>esprit-release</name>
+			<url>http://localhost:8081/content/repository/esprit-release</url>
+		</repository>
 
 	</repositories>
 
