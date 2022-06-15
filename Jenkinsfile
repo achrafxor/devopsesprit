@@ -12,10 +12,10 @@ pipeline {
                 git "https://github.com/achrafxor/devopsesprit"
             }
         }
-        stage ('MVN CLEAN') {
+        stage ('build no push') {
             steps {
-                echo "Maven Clean";
-                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean';
+                echo "MVN PACKAGE AND DEPLOY TO nexus";
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean package  -DskitTests=true -e -U --batch-mode --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true' ;
             }
         }
         stage ('MVN TEST') {
@@ -24,10 +24,11 @@ pipeline {
                 sh '/usr/local/apache-maven-3.5.0/bin/mvn test' ;
             }
         }
-        stage ('MVN PACKAGE AND DEPLOY TO nexus') {
+
+        stage ('build and deploy') {
             steps {
                 echo "MVN PACKAGE AND DEPLOY TO nexus";
-                sh '/usr/local/apache-maven-3.5.0/bin/mvn deploy' ;
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean deploy -DskitTests=true -e -U --batch-mode --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true' ;
             }
         }
         stage ('Docker image build') {
