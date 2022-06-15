@@ -1,7 +1,7 @@
 pipeline {
     environment {
       registry = "13465506/esprit"
-      registryCredential = 'test'
+      registryCredential = 'dockerhub'
       dockerImage = ''
     }
     agent any
