@@ -51,7 +51,7 @@ pipeline {
         }
         }
         stage ('docker push') {
-             withDockerRegistry([ credentialsId: "DOCKERHUB_CREDENTIALS", url: "" ]) {
+             withDockerRegistry([ credentialsId: "DOCKERHUB_CREDENTIALS", url: "registry-1.docker.io/v1 " ]) {
                   sh "docker push 13465506/esprit:$BUILD_NUMBER"
              }
         }
