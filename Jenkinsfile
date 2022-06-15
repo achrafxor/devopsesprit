@@ -44,9 +44,7 @@ pipeline {
             steps {
                 echo "pushing to docker hub";
                 script {
-                  docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
-                  }
+                  sh 'docker push 13465506/esprit:latest'
                 }
             }
         }
