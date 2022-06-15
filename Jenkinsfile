@@ -46,7 +46,17 @@ pipeline {
                 echo "pushing to docker hub";
                 script {
                   sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login registry-1.docker.io/v1 -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                  sh 'docker push 13465506/esprit:$BUILD_NUMBER'
+
+                }
+            }
+        }
+        stage ('docker login') {
+            steps {
+                echo "pushing to docker hub";
+                script {
+                     docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) {
+                       dockerImage.push()
+                     }
                 }
             }
         }
