@@ -3,6 +3,8 @@ pipeline {
       registry = "13465506/esprit"
       registryCredential = 'dockerhub'
       dockerImage = ''
+      DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-raja')
+      DOCKERHUB_CREDENTIALS=('dockerhub')
     }
     agent any
     stages {
@@ -44,6 +46,7 @@ pipeline {
             steps {
                 echo "pushing to docker hub";
                 script {
+                  sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                   sh 'docker push 13465506/esprit:latest'
                 }
             }
