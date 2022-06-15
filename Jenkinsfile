@@ -24,6 +24,12 @@ pipeline {
                 sh '/usr/local/apache-maven-3.5.0/bin/mvn test' ;
             }
         }
+        stage ('SONAR TEST') {
+            steps {
+                echo "Maven Test JUnit";
+                sh '/usr/local/apache-maven-3.5.0/bin/mvn test' ;
+            }
+        }
 
         stage ('deploy to nexus') {
             steps {
