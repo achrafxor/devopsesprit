@@ -15,7 +15,7 @@ pipeline {
         stage ('MVN CLEAN') {
             steps {
                 echo "Maven Clean";
-                sh '/usr/local/apache-maven-3.5.0/bin/mvn clean';
+                sh 'mvn clean';
             }
         }
         stage ('MVN TEST') {
