@@ -3,8 +3,7 @@ pipeline {
       registry = "13465506/esprit"
       registryCredential = 'dockerhub'
       dockerImage = ''
-      DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-raja')
-      DOCKERHUB_CREDENTIALS=('dockerhub')
+      DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
     agent any
     stages {
